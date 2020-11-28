@@ -30,7 +30,7 @@ namespace DAB_Assignment3.Services
         }
 
         public void Update(String address, Location locationIn) =>
-            _locations.ReplaceOne(citizen => citizen.Address == address, locationIn);
+            _locations.ReplaceOne(location => location.Address == address, locationIn);
 
         public void Remove(Location locationIn) =>
             _locations.DeleteOne(location => location.Address == locationIn.Address);

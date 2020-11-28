@@ -14,7 +14,7 @@ namespace DAB_Assignment3
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         [BsonElement("PhoneNumber")] public int PhoneNumber { get; set; }
-        [BsonElement("Emal")] public string Email { get; set; }
+        [BsonElement("Email")] public string Email { get; set; }
         [BsonElement("TestCenter")] public TestCenter testCenter { get; set; }
         [BsonElement("TestCenterID")] public int TestCenterID { get; set; }
 
