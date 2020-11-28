@@ -9,10 +9,9 @@ using MongoDB.Bson;
 
 namespace DAB_Assignment3
 {
-        public class Citizen
+    public class Citizen
     {
         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
         [BsonElement("SocialSecurityNumber")] public string SocialSecurityNumber { get; set; }
         [BsonElement("FirstName")] public string FirstName { get; set; }
         [BsonElement("LastName")] public string LastName { get; set; }
@@ -20,8 +19,7 @@ namespace DAB_Assignment3
         [BsonElement("Age")] public int Age { get; set; }
         [BsonElement("TestCenterCitizens")] public List<TestCenterCitizen> TestCenterCitizens { get; set; }
         [BsonElement("LocationCitizens")] public List<LocationCitizen> LocationCitizens { get; set; }
-        [BsonElement("Municipality")] public Municipality municipality { get; set; }
-        [BsonElement("MunicipalityID")] public int municipalityID { get; set; }
-
+        [BsonElement("Municipality")] public Municipality Municipality { get; set; }
+        [BsonElement("MunicipalityID")] public int MunicipalityID { get; set; }
     }
 }
