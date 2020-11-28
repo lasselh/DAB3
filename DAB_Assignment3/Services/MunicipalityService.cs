@@ -11,8 +11,8 @@ namespace DAB_Assignment3.Services
 
         public MunicipalityService()
         {
-            var client = new MongoClient(""); // indsæt noget her dit svin
-            var database = client.GetDatabase("CoronaDB");
+            var client = new MongoClient("mongodb://localhost:27017"); // indsæt noget her dit svin
+            var database = client.GetDatabase("MongoCoronaDB");
 
             _municipality = database.GetCollection<Municipality>("Municipality");
         }
