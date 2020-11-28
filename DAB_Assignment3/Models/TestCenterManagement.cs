@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 
-namespace DAB2
+namespace DAB_Assignment3
 {
     public class TestCenterManagement
     {

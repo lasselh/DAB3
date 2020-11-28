@@ -2,3 +2,6 @@ C:\Users\mikke\Documents\GitHub\DAB3\DAB_Assignment3\obj\Debug\netcoreapp3.1\DAB
 C:\Users\mikke\Documents\GitHub\DAB3\DAB_Assignment3\obj\Debug\netcoreapp3.1\DAB_Assignment3.AssemblyInfoInputs.cache
 C:\Users\mikke\Documents\GitHub\DAB3\DAB_Assignment3\obj\Debug\netcoreapp3.1\DAB_Assignment3.AssemblyInfo.cs
 C:\Users\mikke\Documents\GitHub\DAB3\DAB_Assignment3\obj\Debug\netcoreapp3.1\DAB_Assignment3.csproj.CoreCompileInputs.cache
+C:\Users\mikke\Documents\GitHub\DAB3\DAB_Assignment3\bin\Debug\netcoreapp3.1\DAB_Assignment3.exe
+C:\Users\mikke\Documents\GitHub\DAB3\DAB_Assignment3\bin\Debug\netcoreapp3.1\MongoDB.Bson.dll
+C:\Users\mikke\Documents\GitHub\DAB3\DAB_Assignment3\obj\Debug\netcoreapp3.1\DAB_Assignment3.csproj.CopyComplete
