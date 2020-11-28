@@ -1,0 +1,4 @@
+C:\Users\mikke\Documents\GitHub\DAB3\DAB_Assignment3\obj\Debug\netcoreapp3.1\DAB_Assignment3.csprojAssemblyReference.cache
+C:\Users\mikke\Documents\GitHub\DAB3\DAB_Assignment3\obj\Debug\netcoreapp3.1\DAB_Assignment3.AssemblyInfoInputs.cache
+C:\Users\mikke\Documents\GitHub\DAB3\DAB_Assignment3\obj\Debug\netcoreapp3.1\DAB_Assignment3.AssemblyInfo.cs
+C:\Users\mikke\Documents\GitHub\DAB3\DAB_Assignment3\obj\Debug\netcoreapp3.1\DAB_Assignment3.csproj.CoreCompileInputs.cache

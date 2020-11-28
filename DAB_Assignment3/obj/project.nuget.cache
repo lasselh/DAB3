@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "qGun7TWXIHFeHOuJdMHZu8N6aj62GscpkxythbmXElv2637SzY+JKuBq/IaXB/RU/8ME8snWB0yClFi5/y1lzg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\mikke\\Documents\\GitHub\\DAB3\\DAB_Assignment3\\DAB_Assignment3.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mikke\\.nuget\\packages\\mongodb.bson\\2.11.4\\mongodb.bson.2.11.4.nupkg.sha512"
+  ],
+  "logs": []
+}
