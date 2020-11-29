@@ -14,7 +14,7 @@ namespace DAB_Assignment3.Services
             var client = new MongoClient("mongodb://localhost:27017"); // indsæt noget her dit svin
             var database = client.GetDatabase("CoronaDB");
 
-            _locations = database.GetCollection<Location>("Citizen");
+            _locations = database.GetCollection<Location>("Location");
         }
 
 

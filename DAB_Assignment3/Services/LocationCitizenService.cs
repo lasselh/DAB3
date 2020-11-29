@@ -11,7 +11,7 @@ namespace DAB_Assignment3.Services
 
         public LocationCitizenService()
         {
-            var client = new MongoClient(""); // indsæt noget her dit svin
+            var client = new MongoClient("mongodb://localhost:27017"); // indsæt noget her dit svin
             var database = client.GetDatabase("CoronaDB");
 
             _locationcitizens = database.GetCollection<LocationCitizen>("LocationCitizen");
@@ -22,8 +22,14 @@ namespace DAB_Assignment3.Services
         public LocationCitizen GetSocialSecurityNumber(string socialSecurityNumber) =>
             _locationcitizens.Find<LocationCitizen>(Locationcitizen => Locationcitizen.SocialSecurityNumber == socialSecurityNumber).FirstOrDefault();
 
+        public List<LocationCitizen> GetSSN(string socialSecurityNumber) =>
+            _locationcitizens.Find<LocationCitizen>(Locationcitizen => Locationcitizen.SocialSecurityNumber == socialSecurityNumber).ToList();
+
         public LocationCitizen GetAddress(string address) =>
            _locationcitizens.Find<LocationCitizen>(Locationcitizen => Locationcitizen.Address == address).FirstOrDefault();
+
+        public List<LocationCitizen> GetADR(string address) =>
+           _locationcitizens.Find<LocationCitizen>(Locationcitizen => Locationcitizen.Address == address).ToList();
 
         public LocationCitizen GetCitizen(Citizen citizen) =>
            _locationcitizens.Find<LocationCitizen>(Locationcitizen => Locationcitizen.citizen == citizen).FirstOrDefault();
@@ -33,6 +39,12 @@ namespace DAB_Assignment3.Services
 
         public LocationCitizen GetDate(string date) =>
            _locationcitizens.Find<LocationCitizen>(Locationcitizen => Locationcitizen.Date == date).FirstOrDefault();
+
+        //public LocationCitizen GetCitizen(string socialSecurityNumber, string address) =>
+        //   _locationcitizens.Find<LocationCitizen>(Locationcitizen => 
+        //   Locationcitizen.SocialSecurityNumber == socialSecurityNumber && 
+        //   Locationcitizen.Address == address)
+        //   .FirstOrDefault();
 
         //Create, Update, Remove
         public LocationCitizen Create(LocationCitizen locationCitizen)

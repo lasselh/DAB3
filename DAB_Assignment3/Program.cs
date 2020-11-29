@@ -11,12 +11,16 @@ namespace DAB_Assignment3
     {
         static void Main(string[] args)
         {
-            CitizenService csdb = new CitizenService();
-            LocationCitizen lcdb = new LocationCitizen();
-            MunicipalityService msdb = new MunicipalityService();
-            //NationService nsdb = new NationService();
-            //TestCenterService tcsdb = new TestCenterService();
-            //TestCenterManagementService tcmsdb = new TestCenterManagementService();
+            CitizenService cs = new CitizenService();
+            LocationService ls = new LocationService();
+            MunicipalityService ms = new MunicipalityService();
+            NationService ns = new NationService();
+            TestCenterService tcs = new TestCenterService();
+            TestCenterManagementService tcms = new TestCenterManagementService();
+
+            LocationCitizenService lcs = new LocationCitizenService();
+            TestCenterCitizenService tccs = new TestCenterCitizenService();
+
             //GenerateFunctions gf = new GenerateFunctions();
             CreateFunctions cf = new CreateFunctions();
 
@@ -67,26 +71,26 @@ namespace DAB_Assignment3
                 switch (choice)
                 {
                     case 1:
-                        cf.createCitizen(csdb);
+                        cf.createCitizen(cs);
                         break;
 
                     case 2:
-                        //cf.createTestCenter(db);
+                        cf.createTestCenter(tcs);
                         break;
 
                     case 3:
-                        //cf.createManagement(db);
+                        cf.createManagement(tcms, tcs);
                         break;
 
                     case 4:
-                        //cf.createTestCase(db);
+                        cf.createTestCase(cs, tcs, tccs, lcs);
                         break;
 
                     case 5:
-                        //cf.createLocation(db);
+                        cf.createLocation(ls);
                         break;
                     case 6:
-                        //cf.createLocationCitizen(db);
+                        cf.createLocationCitizen(lcs, cs, ls);
                         break;
 
                     case 7:
@@ -105,7 +109,7 @@ namespace DAB_Assignment3
                             switch (choice2)
                             {
                                 case 1:
-                                    //cf.searchForCitizen(db);
+                                    cf.searchForCitizen(cs);
                                     break;
                                 case 2:
                                     //cf.searchforAge(db);

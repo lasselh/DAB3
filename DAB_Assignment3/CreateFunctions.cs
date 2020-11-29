@@ -13,10 +13,8 @@ namespace DAB_Assignment3
 {
     class CreateFunctions
     {
-        public void createCitizen(CitizenService db)
+        public void createCitizen(CitizenService cs)
         {
-            CitizenService _service = new CitizenService();
-
             Console.Clear();
             Console.WriteLine("Type in citizens firstname: ");
             string Firstname = Console.ReadLine();
@@ -45,224 +43,244 @@ namespace DAB_Assignment3
                 SocialSecurityNumber = SSN,
                 MunicipalityID = municipalityID
             };
-            db.Create(CitizenAdd);
+            cs.Create(CitizenAdd);
 
             Console.WriteLine("Citizen succesfully added!\n");
         }
 
-        //public void createTestCenter(MyDBContext db)
-        //{
-        //    Console.Clear();
-        //    Console.WriteLine("Type the ID for the testcenter: ");
-        //    int TestCenterID = int.Parse(Console.ReadLine());
+        public void createTestCenter(TestCenterService tcs)
+        {
+            Console.Clear();
+            Console.WriteLine("Type the ID for the testcenter: ");
+            int TestCenterID = int.Parse(Console.ReadLine());
 
-        //    Console.WriteLine("Type the opening hours of the testcenter (fx. 8-16): ");
-        //    string hours = Console.ReadLine();
+            Console.WriteLine("Type the opening hours of the testcenter (fx. 8-16): ");
+            string hours = Console.ReadLine();
 
-        //    Console.WriteLine("Type the MunicipalityID for the municipality in which the testcenter is: ");
-        //    int municipalityID = int.Parse(Console.ReadLine());
+            Console.WriteLine("Type the MunicipalityID for the municipality in which the testcenter is: ");
+            int municipalityID = int.Parse(Console.ReadLine());
 
-        //    var TestCenterAdd = new TestCenter()
-        //    { TestCenterID = TestCenterID, Hours = hours, MunicipalityID = municipalityID };
+            var TestCenterAdd = new TestCenter()
+            { 
+                TestCenterID = TestCenterID, 
+                Hours = hours, 
+                MunicipalityID = municipalityID 
+            };
 
-        //    db.Add(TestCenterAdd);
-        //    db.SaveChanges();
+            tcs.Create(TestCenterAdd);
 
-        //    Console.WriteLine("TestCenter succesfully added!\n");
-        //}
+            Console.WriteLine("TestCenter succesfully added!\n");
+        }
 
-        //public void createManagement(MyDBContext db)
-        //{
-        //    Console.Clear();
-        //    Console.WriteLine("Type in TestCenterManagements PhoneNumber:(8 digits): ");
-        //    int phonenumber = int.Parse(Console.ReadLine());
+        public void createManagement(TestCenterManagementService tcms, TestCenterService tcs)
+        {
+            Console.Clear();
+            Console.WriteLine("Type in TestCenterManagements PhoneNumber:(8 digits): ");
+            int phonenumber = int.Parse(Console.ReadLine());
 
-        //    Console.WriteLine("Type in TestCenterManagements Email: ");
-        //    string email = Console.ReadLine();
+            Console.WriteLine("Type in TestCenterManagements Email: ");
+            string email = Console.ReadLine();
 
-        //    Console.WriteLine("Type in TestCenterID for the TestCenter that the this Management will manage: ");
-        //    int testcenterid = int.Parse(Console.ReadLine());
+            Console.WriteLine("Type in TestCenterID for the TestCenter that the this Management will manage: ");
+            int testcenterid = int.Parse(Console.ReadLine());
 
-        //    var TestCenterManagementAdd = new TestCenterManagement()
-        //    { PhoneNumber = phonenumber, Email = email, TestCenterID = testcenterid };
+            var TestCenterManagementAdd = new TestCenterManagement()
+            {
+                PhoneNumber = phonenumber,
+                Email = email,
+                TestCenterID = testcenterid,
+                testCenter = tcs.Get(testcenterid)
+            };
 
-        //    db.Add(TestCenterManagementAdd);
-        //    db.SaveChanges();
+            tcms.Create(TestCenterManagementAdd);
 
-        //    Console.WriteLine("TestCenterManagement succesfully added!\n");
-        //}
+            Console.WriteLine("TestCenterManagement succesfully added!\n");
+        }
 
-        //public void createTestCase(MyDBContext db)
-        //{
-        //    Console.Clear();
-        //    Console.WriteLine("Type the SocialSecurityNumber of the citizen: ");
-        //    string temp1 = Console.ReadLine();
-        //    string ssn = temp1.Trim();
+        public void createTestCase(CitizenService cs, TestCenterService tcs, TestCenterCitizenService tccs, LocationCitizenService lcs)
+        {
+            Console.Clear();
+            Console.WriteLine("Type the SocialSecurityNumber of the citizen: ");
+            string temp1 = Console.ReadLine();
+            string ssn = temp1.Trim();
 
-        //    Console.Clear();
-        //    Console.WriteLine("Type the TestCenterID of the TestCenter where the test was made: ");
-        //    string temp2 = Console.ReadLine();
-        //    int testcenterid = int.Parse(temp2);
+            Console.Clear();
+            Console.WriteLine("Type the TestCenterID of the TestCenter where the test was made: ");
+            string temp2 = Console.ReadLine();
+            int testcenterid = int.Parse(temp2);
 
-        //    var cit = db.Citizen.Find(ssn);
-        //    var tcr = db.TestCenter.Find(testcenterid);
+            var cit = cs.Get(ssn);
+            var tcr = tcs.Get(testcenterid);
 
-        //    var tcc = new TestCenterCitizen();
-        //    tcc.SocialSecurityNumber = cit.SocialSecurityNumber;
-        //    tcc.TestCenterID = tcr.TestCenterID;
+            var tcc = new TestCenterCitizen();
+            tcc.SocialSecurityNumber = cit.SocialSecurityNumber;
+            tcc.TestCenterID = tcr.TestCenterID;
+            tcc.citizen = cit;
+            tcc.testCenter = tcr;
 
-        //    Console.Clear();
-        //    Console.WriteLine("Type the date of the test (ddmmyy): ");
-        //    string date12 = Console.ReadLine();
-        //    tcc.date = date12;
+            Console.Clear();
+            Console.WriteLine("Type the date of the test (ddmmyy): ");
+            string date12 = Console.ReadLine();
+            tcc.date = date12;
 
-        //    Console.Clear();
-        //    Console.WriteLine("Type the status of the test (Not Tested, Not Ready, Ready): ");
-        //    string status = Console.ReadLine();
-        //    tcc.status = status;
+            Console.Clear();
+            Console.WriteLine("Type the status of the test (Not Tested, Not Ready, Ready): ");
+            string status = Console.ReadLine();
+            tcc.status = status;
 
-        //    Console.Clear();
-        //    Console.WriteLine("Type the test result: \n" +
-        //                      "'P' for positive\n" +
-        //                      "'N' for negative/unknown\n");
-        //    string temp = Console.ReadLine();
-        //    int check = 0;
-        //    do
-        //    {
-        //        if (temp == "P")
-        //        {
-        //            tcc.result = true;
-        //            check = 1;
+            Console.Clear();
+            Console.WriteLine("Type the test result: \n" +
+                              "'P' for positive\n" +
+                              "'N' for negative/unknown\n");
+            string temp = Console.ReadLine();
+            int check = 0;
+            do
+            {
+                if (temp == "P")
+                {
+                    tcc.result = true;
+                    check = 1;
 
-        //            using (var context = new MyDBContext())
-        //            {
-        //                var tmpresult = context.LocationCitizen.Where(x => x.SocialSecurityNumber == ssn).ToList();
+                    //using (var context = new MyDBContext())
+                    //{
+                    var tmpresult = lcs.GetSSN(ssn);
 
-        //                foreach (LocationCitizen loccit in tmpresult)
-        //                {
-        //                    var adress = loccit.Address;
-        //                    var tmp2 = context.LocationCitizen.Where(x => x.Address == adress).ToList();
+                        foreach (LocationCitizen loccit in tmpresult)
+                        {
+                            var adress = loccit.Address;
+                            var tmp2 = lcs.GetADR(adress);
 
-        //                    // Får den nuværende dato
-        //                    DateTime dt = DateTime.Now;
-        //                    DateTime dt3days = dt.AddDays(-3);
+                            // Får den nuværende dato
+                            DateTime dt = DateTime.Now;
+                            DateTime dt3days = dt.AddDays(-3);
 
-        //                    // Får den smittede persons dato
-        //                    string day1 = loccit.date.Substring(0, 2);
-        //                    string month1 = loccit.date.Substring(2, 2);
-        //                    string year1 = "20" + loccit.date.Substring(4, 2);
-        //                    DateTime infectdt = new DateTime(int.Parse(year1), int.Parse(month1), int.Parse(day1));
+                            // Får den smittede persons dato
+                            string day1 = loccit.Date.Substring(0, 2);
+                            string month1 = loccit.Date.Substring(2, 2);
+                            string year1 = "20" + loccit.Date.Substring(4, 2);
+                            DateTime infectdt = new DateTime(int.Parse(year1), int.Parse(month1), int.Parse(day1));
 
-        //                    float compareStart = infectdt.CompareTo(dt3days);
-        //                    Console.WriteLine(dt);
-        //                    Console.WriteLine(infectdt);
-        //                    if (compareStart <= 0)
-        //                    {
-        //                        DateTime dt1;
-        //                        DateTime dt2;
-        //                        DateTime dt3;
-        //                        // Trækker 3 dage fra for at se om den er aktiv
-        //                        dt1 = dt.AddDays(-1);
-        //                        dt2 = dt.AddDays(-2);
-        //                        dt3 = dt.AddDays(-3);
-        //                        // Fjerner timer/minutter/sekunder fra DateTime
-        //                        string stringdt1 = dt1.ToShortDateString();
-        //                        dt1 = Convert.ToDateTime(stringdt1);
-        //                        string stringdt2 = dt2.ToShortDateString();
-        //                        dt2 = Convert.ToDateTime(stringdt2);
-        //                        string stringdt3 = dt3.ToShortDateString();
-        //                        dt3 = Convert.ToDateTime(stringdt3);
+                            float compareStart = infectdt.CompareTo(dt3days);
+                            Console.WriteLine(dt);
+                            Console.WriteLine(infectdt);
+                            if (compareStart <= 0)
+                            {
+                                DateTime dt1;
+                                DateTime dt2;
+                                DateTime dt3;
+                                // Trækker 3 dage fra for at se om den er aktiv
+                                dt1 = dt.AddDays(-1);
+                                dt2 = dt.AddDays(-2);
+                                dt3 = dt.AddDays(-3);
+                                // Fjerner timer/minutter/sekunder fra DateTime
+                                string stringdt1 = dt1.ToShortDateString();
+                                dt1 = Convert.ToDateTime(stringdt1);
+                                string stringdt2 = dt2.ToShortDateString();
+                                dt2 = Convert.ToDateTime(stringdt2);
+                                string stringdt3 = dt3.ToShortDateString();
+                                dt3 = Convert.ToDateTime(stringdt3);
 
-        //                        var table = new ConsoleTable("People who MIGHT be infected");
+                                var table = new ConsoleTable("People who MIGHT be infected");
 
-        //                        foreach (LocationCitizen C in tmp2)
-        //                        {
+                                foreach (LocationCitizen C in tmp2)
+                                {
 
-        //                            // Formaterer Citizen dato til DateTime og sammenligner med dt1/2/3
-        //                            string day = C.date.Substring(0, 2);
-        //                            string month = C.date.Substring(2, 2);
-        //                            string year = "20" + C.date.Substring(4, 2);
-        //                            DateTime citdt = new DateTime(int.Parse(year), int.Parse(month), int.Parse(day));
-        //                            float compare1 = dt1.CompareTo(citdt);
-        //                            float compare2 = dt2.CompareTo(citdt);
-        //                            float compare3 = dt3.CompareTo(citdt);
+                                    // Formaterer Citizen dato til DateTime og sammenligner med dt1/2/3
+                                    string day = C.Date.Substring(0, 2);
+                                    string month = C.Date.Substring(2, 2);
+                                    string year = "20" + C.Date.Substring(4, 2);
+                                    DateTime citdt = new DateTime(int.Parse(year), int.Parse(month), int.Parse(day));
+                                    float compare1 = dt1.CompareTo(citdt);
+                                    float compare2 = dt2.CompareTo(citdt);
+                                    float compare3 = dt3.CompareTo(citdt);
 
-        //                            if (compare1 == 0 || compare2 == 0 || compare3 == 0)
-        //                            {
-        //                                if (C.SocialSecurityNumber != ssn)
-        //                                {
-        //                                    table.AddRow(C.SocialSecurityNumber);
-        //                                }
-        //                            }
-        //                        }
-        //                        table.Write();
-        //                        Console.WriteLine("Press any key to end");
-        //                        Console.ReadLine();
-        //                    }
-        //                }
-        //            }
-        //        }
-        //        else if (temp == "N")
-        //        {
-        //            tcc.result = false;
-        //            check = 1;
-        //        }
-        //        else
-        //        {
-        //            Console.WriteLine("Please type a valid result: ");
-        //            temp = Console.ReadLine();
-        //            check = 0;
-        //        }
-        //    } while (check == 0);
+                                    if (compare1 == 0 || compare2 == 0 || compare3 == 0)
+                                    {
+                                        if (C.SocialSecurityNumber != ssn)
+                                        {
+                                            table.AddRow(C.SocialSecurityNumber);
+                                        }
+                                    }
+                                }
+                                table.Write();
+                                Console.WriteLine("Press any key to end");
+                                Console.ReadLine();
+                            }
+                        }
+                    //}
+                }
+                else if (temp == "N")
+                {
+                    tcc.result = false;
+                    check = 1;
+                }
+                else
+                {
+                    Console.WriteLine("Please type a valid result: ");
+                    temp = Console.ReadLine();
+                    check = 0;
+                }
+            } while (check == 0);
 
-        //    db.Add(tcc);
-        //    db.SaveChanges();
+            tccs.Create(tcc);
 
-        //    Console.WriteLine("Test Case succesfully added!\n");
-        //}
+            Console.WriteLine("Test Case succesfully added!\n");
+        }
 
-        //public void createLocation(MyDBContext db)
-        //{
-        //    Console.Clear();
-        //    Console.WriteLine("Type in the address for the location: ");
-        //    string address = Console.ReadLine();
+        public void createLocation(LocationService ls)
+        {
+            Console.Clear();
+            Console.WriteLine("Type in the address for the location: ");
+            string address = Console.ReadLine();
 
-        //    Console.WriteLine("Type in the Municipality ID for the municipality the location is located in: ");
-        //    int municipalityid = int.Parse(Console.ReadLine());
+            Console.WriteLine("Type in the Municipality ID for the municipality the location is located in: ");
+            int municipalityid = int.Parse(Console.ReadLine());
 
-        //    var LocationAdd = new Location() { Address = address, MunicipalityID = municipalityid };
+            var LocationAdd = new Location() 
+            { 
+                Address = address, 
+                MunicipalityID = municipalityid 
+            };
 
-        //    db.Add(LocationAdd);
-        //    db.SaveChanges();
+            ls.Create(LocationAdd);
 
-        //    Console.WriteLine("Location succesfully added!\n");
-        //}
+            Console.WriteLine("Location succesfully added!\n");
+        }
 
-        //public void createLocationCitizen(MyDBContext db)
-        //{
-        //    Console.Clear();
-        //    Console.WriteLine("Type in the address for the location: ");
-        //    string address = Console.ReadLine();
+        public void createLocationCitizen(LocationCitizenService lcs, CitizenService cs, LocationService ls)
+        {
+            Console.Clear();
+            Console.WriteLine("Type in the address for the location: ");
+            string address = Console.ReadLine();
 
-        //    Console.WriteLine("Type in the SocialSecurityNumber for the citizen: ");
-        //    string ssn = (Console.ReadLine());
+            Console.WriteLine("Type in the SocialSecurityNumber for the citizen: ");
+            string ssn = (Console.ReadLine());
 
-        //    Console.WriteLine("Type in the date ");
-        //    string date = (Console.ReadLine());
+            Console.WriteLine("Type in the date ");
+            string date = (Console.ReadLine());
 
-        //    var LocationCitizenAdd = new LocationCitizen() { Address = address, SocialSecurityNumber = ssn, date = date };
+            var cit = cs.Get(ssn);
+            var loc = ls.GetAddress(address);
 
-        //    db.Add(LocationCitizenAdd);
-        //    db.SaveChanges();
+            var LocationCitizenAdd = new LocationCitizen()
+            {
+                Address = address,
+                SocialSecurityNumber = ssn,
+                Date = date,
+                citizen = cit,
+                location = loc
+            };
 
-        //    Console.WriteLine("Location succesfully added!\n");
-        //}
+            lcs.Create(LocationCitizenAdd);
 
-        public void searchForCitizen(CitizenService db)
+            Console.WriteLine("Location succesfully added!\n");
+        }
+
+        public void searchForCitizen(CitizenService cs)
         {
             Console.WriteLine("Type the name you want to find:");
             string tempname = Console.ReadLine();
-            var myCitizen = db.GetFirstName(tempname);
+            var myCitizen = cs.GetFirstName(tempname);
             var table = new ConsoleTable("Firstname", "Lastname", "Age", "Sex", "SSN");
 
             foreach (Citizen C in myCitizen)
@@ -275,10 +293,10 @@ namespace DAB_Assignment3
             Console.ReadLine();
         }
 
-        //public void searchforAge(MyDBContext db)
+        //public void searchforAge(CitizenService cs)
         //{
-        //    using (var context = new MyDBContext())
-        //    {
+        //    //using (var context = new MyDBContext())
+        //    //{
         //        Console.WriteLine("Choose an age group to show amount of positive cases \n" +
         //                          " 1: 0-10\n" +
         //                          " 2: 11-20\n" +
@@ -384,7 +402,7 @@ namespace DAB_Assignment3
         //        table.Write();
         //        Console.WriteLine("Press any key to end");
         //        Console.ReadLine();
-        //    }
+        //    //}
         //}
 
         //public void searchforSex(MyDBContext db)
