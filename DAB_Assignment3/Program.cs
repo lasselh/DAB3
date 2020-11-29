@@ -112,13 +112,13 @@ namespace DAB_Assignment3
                                     cf.searchForCitizen(cs);
                                     break;
                                 case 2:
-                                    //cf.searchforAge(db);
+                                    cf.searchforAge(tccs);
                                     break;
                                 case 3:
-                                    //cf.searchforSex(db);
+                                    cf.searchforSex(tccs);
                                     break;
                                 case 4:
-                                    //cf.SearchForMunincipality(db);
+                                    cf.SearchForMunincipality(tccs);
                                     break;
                                 case 0:
                                     finishedSearch = true;
