@@ -13,6 +13,8 @@ namespace DAB_Assignment3
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
+        public string Id { get; set; }
+
         [BsonElement("TestCenterID")] public int TestCenterID { get; set; }
         [BsonElement("Hours")] public string Hours { get; set; }
         [BsonElement("TestCenterCitizen")] public List<TestCenterCitizen> TestCenterCitizens { get; set; }

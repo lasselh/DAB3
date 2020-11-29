@@ -5,13 +5,13 @@ using System.Text;
 
 namespace DAB_Assignment3.Services
 {
-    class CitizenService
+    class NationService
     {
         private IMongoCollection<Nation> _nations;
 
-        public CitizenService()
+        public NationService()
         {
-            var client = new MongoClient(""); // indsæt noget her dit svin
+            var client = new MongoClient("mongodb://localhost:27017"); // indsæt noget her dit svin
             var database = client.GetDatabase("CoronaDB");
 
             _nations = database.GetCollection<Nation>("Nation");

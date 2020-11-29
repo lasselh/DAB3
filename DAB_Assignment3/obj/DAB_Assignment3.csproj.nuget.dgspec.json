@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mikke\\Documents\\GitHub\\DAB3\\DAB_Assignment3\\DAB_Assignment3.csproj": {}
+    "C:\\Users\\Premi\\Documents\\GitHub\\DAB3\\DAB_Assignment3\\DAB_Assignment3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mikke\\Documents\\GitHub\\DAB3\\DAB_Assignment3\\DAB_Assignment3.csproj": {
+    "C:\\Users\\Premi\\Documents\\GitHub\\DAB3\\DAB_Assignment3\\DAB_Assignment3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mikke\\Documents\\GitHub\\DAB3\\DAB_Assignment3\\DAB_Assignment3.csproj",
+        "projectUniqueName": "C:\\Users\\Premi\\Documents\\GitHub\\DAB3\\DAB_Assignment3\\DAB_Assignment3.csproj",
         "projectName": "DAB_Assignment3",
-        "projectPath": "C:\\Users\\mikke\\Documents\\GitHub\\DAB3\\DAB_Assignment3\\DAB_Assignment3.csproj",
-        "packagesPath": "C:\\Users\\mikke\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mikke\\Documents\\GitHub\\DAB3\\DAB_Assignment3\\obj\\",
+        "projectPath": "C:\\Users\\Premi\\Documents\\GitHub\\DAB3\\DAB_Assignment3\\DAB_Assignment3.csproj",
+        "packagesPath": "C:\\Users\\Premi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Premi\\Documents\\GitHub\\DAB3\\DAB_Assignment3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mikke\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Premi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,15 +44,15 @@
             },
             "MongoDB.Bson": {
               "target": "Package",
-              "version": "[2.11.4, )"
+              "version": "[2.10.4, )"
             },
             "MongoDB.Driver": {
               "target": "Package",
-              "version": "[2.11.4, )"
+              "version": "[2.10.4, )"
             },
             "MongoDB.Driver.Core": {
               "target": "Package",
-              "version": "[2.11.4, )"
+              "version": "[2.10.4, )"
             }
           },
           "imports": [

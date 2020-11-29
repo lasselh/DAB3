@@ -12,6 +12,9 @@ namespace DAB_Assignment3
     public class Citizen
     {
         [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string Id { get; set; }
+
         [BsonElement("SocialSecurityNumber")] public string SocialSecurityNumber { get; set; }
         [BsonElement("FirstName")] public string FirstName { get; set; }
         [BsonElement("LastName")] public string LastName { get; set; }

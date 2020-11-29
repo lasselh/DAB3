@@ -13,6 +13,8 @@ namespace DAB_Assignment3
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
+        public string Id { get; set; }
+
         [BsonElement("PhoneNumber")] public int PhoneNumber { get; set; }
         [BsonElement("Email")] public string Email { get; set; }
         [BsonElement("TestCenter")] public TestCenter testCenter { get; set; }
