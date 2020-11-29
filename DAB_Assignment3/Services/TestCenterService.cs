@@ -28,12 +28,6 @@ namespace DAB_Assignment3
         public List<TestCenter> GetHours(string hours) =>
             _testcenters.Find(testcenter => testcenter.Hours == hours).ToList();
 
-        public List<TestCenter> GetTestCenterManagement(TestCenterManagement testCenterManagement) =>
-            _testcenters.Find(testcenter => testcenter.testCenterManagement == testCenterManagement).ToList();
-
-        public List<TestCenter> GetMunicipality(Municipality municipality) =>
-            _testcenters.Find(testcenter => testcenter.municipality == municipality).ToList();
-
         public TestCenter GetMunicipalityID(int municipalityID) =>
             _testcenters.Find(testcenter => testcenter.MunicipalityID == municipalityID).FirstOrDefault();
 

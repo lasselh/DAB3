@@ -178,7 +178,7 @@ namespace DAB_Assignment3
         }
 
         // Genererer et antal tilfældige TestCenterManagements
-        public void GenerateTestCenterManagement(TestCenterManagementService tcms, int number = 100)
+        public void GenerateTestCenterManagement(TestCenterManagementService tcms, TestCenterService tcs, int number = 100)
         {
             // Clears the database of TestCenterManagements
             var myTestCenterManagements = tcms.Get();
@@ -194,8 +194,9 @@ namespace DAB_Assignment3
                 {
                     PhoneNumber = 10000000 + i,
                     Email = "random@mail" + i.ToString() + ".dk",
-                    TestCenterID = i
-                };
+                    TestCenterID = i,
+                    testCenter = tcs.Get(i)
+            };
 
                 tcms.Create(tcm);
             }
@@ -227,7 +228,9 @@ namespace DAB_Assignment3
                 {
                     SocialSecurityNumber = cit.SocialSecurityNumber,
                     TestCenterID = tcr.TestCenterID,
-                    date = $"{getDate()}{getMonth()}{getYear(0)}"
+                    date = $"{getDate()}{getMonth()}{getYear(0)}",
+                    citizen = cit,
+                    testCenter = tcr
                 };
 
                 int rnum = random.Next(100);
@@ -277,7 +280,9 @@ namespace DAB_Assignment3
                 {
                     SocialSecurityNumber = cit.SocialSecurityNumber,
                     Address = loc.Address,
-                    Date = $"{getDate()}{getMonth()}{getYear(0)}"
+                    Date = $"{getDate()}{getMonth()}{getYear(0)}",
+                    citizen = cit,
+                    location = loc
                 };
 
                 lcs.Create(lcc);

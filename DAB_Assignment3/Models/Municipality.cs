@@ -18,10 +18,6 @@ namespace DAB_Assignment3
         [BsonElement("MunicipalityID")] public int MunicipalityID { get; set; }
         [BsonElement("Name")] public string Name { get; set; }
         [BsonElement("Population")] public float Population { get; set; }
-        [BsonElement("Locations")] public List<Location> Locations { get; set; }
-        [BsonElement("Nation")] public Nation nation { get; set; }
-        [BsonElement("Citizens")] public List<Citizen> Citizens { get; set; }
-        [BsonElement("TestCenters")] public List<TestCenter> TestCenters { get; set; }
         [BsonElement("NationName")] public string NationName { get; set; }
 
     }

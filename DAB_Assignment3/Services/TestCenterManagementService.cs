@@ -29,9 +29,6 @@ namespace DAB_Assignment3
         public TestCenterManagement Get(string email) =>
             _testcentermanagements.Find(testcentermanagement => testcentermanagement.Email == email).FirstOrDefault();
 
-        public List<TestCenterManagement> GetTestCenter(TestCenter testCenter) =>
-            _testcentermanagements.Find(testcentermanagement => testcentermanagement.testCenter == testCenter).ToList();
-
         public TestCenterManagement GetTestCenterID(int testCenterID) =>
            _testcentermanagements.Find(testcentermanagement => testcentermanagement.TestCenterID == testCenterID).FirstOrDefault();
 

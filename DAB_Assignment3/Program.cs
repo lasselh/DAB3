@@ -45,7 +45,7 @@ namespace DAB_Assignment3
                     gf.AddCitizenToTestCenter(cs, tcs, tccs);
                     gf.GenerateLocation(ls, 100);
                     gf.AddCitizenToLocation(cs, ls, lcs, 100);
-                    gf.GenerateTestCenterManagement(tcms, 100);
+                    gf.GenerateTestCenterManagement(tcms, tcs, 100);
                     break;
 
                 case 2:

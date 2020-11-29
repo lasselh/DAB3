@@ -31,8 +31,6 @@ namespace DAB_Assignment3.Services
         public List<Municipality> GetPopulation(int population) =>
             _municipality.Find(municipality => municipality.Population == population).ToList();
 
-        public List<Municipality> GetLocation(List<Location> locations) =>
-            _municipality.Find(municipality => municipality.Locations == locations).ToList();
 
         public Municipality GetNation(string nationName) =>
             _municipality.Find(municipality => municipality.NationName == nationName).FirstOrDefault();

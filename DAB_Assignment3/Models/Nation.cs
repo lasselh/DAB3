@@ -16,7 +16,6 @@ namespace DAB_Assignment3
         public string Id { get; set; }
 
         [BsonElement("NationName")] public string NationName { get; set; }
-        [BsonElement("Municipalities")] public List<Municipality> Municipalities { get; set; }
         [BsonElement("NationID")] public string NationID { get; set; }
 
     }
