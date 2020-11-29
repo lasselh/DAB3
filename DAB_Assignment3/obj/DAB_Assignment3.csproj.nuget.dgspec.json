@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mathi\\Documents\\GitHub\\DAB3\\DAB_Assignment3\\DAB_Assignment3.csproj": {}
+    "C:\\Users\\mikke\\Documents\\GitHub\\DAB3\\DAB_Assignment3\\DAB_Assignment3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mathi\\Documents\\GitHub\\DAB3\\DAB_Assignment3\\DAB_Assignment3.csproj": {
+    "C:\\Users\\mikke\\Documents\\GitHub\\DAB3\\DAB_Assignment3\\DAB_Assignment3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mathi\\Documents\\GitHub\\DAB3\\DAB_Assignment3\\DAB_Assignment3.csproj",
+        "projectUniqueName": "C:\\Users\\mikke\\Documents\\GitHub\\DAB3\\DAB_Assignment3\\DAB_Assignment3.csproj",
         "projectName": "DAB_Assignment3",
-        "projectPath": "C:\\Users\\mathi\\Documents\\GitHub\\DAB3\\DAB_Assignment3\\DAB_Assignment3.csproj",
-        "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mathi\\Documents\\GitHub\\DAB3\\DAB_Assignment3\\obj\\",
+        "projectPath": "C:\\Users\\mikke\\Documents\\GitHub\\DAB3\\DAB_Assignment3\\DAB_Assignment3.csproj",
+        "packagesPath": "C:\\Users\\mikke\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mikke\\Documents\\GitHub\\DAB3\\DAB_Assignment3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mikke\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
