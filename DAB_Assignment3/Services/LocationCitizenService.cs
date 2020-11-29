@@ -11,7 +11,7 @@ namespace DAB_Assignment3.Services
 
         public LocationCitizenService()
         {
-            var client = new MongoClient("mongodb://localhost:27017"); // indsæt noget her dit svin
+            var client = new MongoClient("mongodb://localhost:27017"); // Indsæt navn her
             var database = client.GetDatabase("CoronaDB");
 
             _locationcitizens = database.GetCollection<LocationCitizen>("LocationCitizen");

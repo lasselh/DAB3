@@ -12,7 +12,7 @@ namespace DAB_Assignment3
 
         public TestCenterManagementService()
         {
-            var client = new MongoClient("mongodb://localhost:27017"); // indsæt noget her dit svin
+            var client = new MongoClient("mongodb://localhost:27017"); // Indsæt navn her
             var database = client.GetDatabase("CoronaDB");
 
             _testcentermanagements = database.GetCollection<TestCenterManagement>("TestCenterManagement");
