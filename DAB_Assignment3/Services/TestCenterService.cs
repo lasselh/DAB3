@@ -37,6 +37,12 @@ namespace DAB_Assignment3
         public TestCenter GetMunicipalityID(int municipalityID) =>
             _testcenters.Find(testcenter => testcenter.MunicipalityID == municipalityID).FirstOrDefault();
 
+        //public long GetCount() =>
+        //    _testcenters.CountDocuments(c);
+
+        public TestCenter GetRandomTestCenter(int count) =>
+            _testcenters.Find(TestCenter => true).Limit(-1).Skip(count).FirstOrDefault();
+
         //Create, Update, Remove
         public TestCenter Create(TestCenter testCenter)
         {

@@ -21,7 +21,7 @@ namespace DAB_Assignment3
             LocationCitizenService lcs = new LocationCitizenService();
             TestCenterCitizenService tccs = new TestCenterCitizenService();
 
-            //GenerateFunctions gf = new GenerateFunctions();
+            GenerateFunctions gf = new GenerateFunctions();
             CreateFunctions cf = new CreateFunctions();
 
             int choice;
@@ -35,23 +35,23 @@ namespace DAB_Assignment3
                               " 1: Add Denmark municipality and random dummy data\n" +
                               " 2: Empty database");
             choice = Convert.ToInt32(Console.ReadLine());
-            //switch (choice)
-            //{
-            //    case 1:
-            //        Console.Clear();
-            //        gf.ParseMunicipality(db);
-            //        gf.GenerateTestCenter(db, 100);
-            //        gf.GenerateCitizens(db, 100);
-            //        gf.AddCitizenToTestCenter(db, 100);
-            //        gf.GenerateLocation(db, 100);
-            //        gf.AddCitizenToLocation(db, 100);
-            //        gf.GenerateTestCenterManagement(db, 100);
-            //        break;
+            switch (choice)
+            {
+                case 1:
+                    Console.Clear();
+                    gf.ParseMunicipality(ms, ns);
+                    gf.GenerateTestCenter(tcs, 100);
+                    gf.GenerateCitizens(cs, 100);
+                    gf.AddCitizenToTestCenter(cs, tcs, tccs);
+                    gf.GenerateLocation(ls, 100);
+                    gf.AddCitizenToLocation(cs, ls, lcs, 100);
+                    gf.GenerateTestCenterManagement(tcms, 100);
+                    break;
 
-            //    case 2:
-            //        Console.Clear();
-            //        break;
-            //}
+                case 2:
+                    Console.Clear();
+                    break;
+            }
 
             choice = 0;
             do

@@ -37,6 +37,12 @@ namespace DAB_Assignment3
         public List<Citizen> GetSex(string sex) =>
             _citizens.Find(Citizen => Citizen.Sex == sex).ToList();
 
+        //public long GetCount() =>
+        //    _citizens.CountDocuments(c);
+
+        public Citizen GetRandomCitizen(int count) =>
+            _citizens.Find(Citizen => true).Limit(-1).Skip(count).FirstOrDefault();
+
         //Create, Update, Remove
         public Citizen Create(Citizen citizen)
         {
