@@ -19,8 +19,14 @@ namespace DAB_Assignment3.Services
 
 
         // Get Funktioner
+        public List<Location> Get() =>
+            _locations.Find(Location => true).ToList();
+
         public Location GetAddress(string address) =>
             _locations.Find<Location>(Location => Location.Address == address).FirstOrDefault();
+
+        public Location GetRandomLocation(int count) =>
+            _locations.Find(Location => true).Limit(-1).Skip(count).FirstOrDefault();
 
         //Create, Update, Remove
         public Location Create(Location location)

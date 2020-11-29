@@ -19,6 +19,9 @@ namespace DAB_Assignment3.Services
 
 
         // Get Funktioner
+        public List<LocationCitizen> Get() =>
+            _locationcitizens.Find(Locationcitizen => true).ToList();
+
         public LocationCitizen GetSocialSecurityNumber(string socialSecurityNumber) =>
             _locationcitizens.Find<LocationCitizen>(Locationcitizen => Locationcitizen.SocialSecurityNumber == socialSecurityNumber).FirstOrDefault();
 
